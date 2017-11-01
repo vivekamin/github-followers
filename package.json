@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "postinstall": "ng build"
   },
-  engines:{
+  "engines":{
     "node":"7.10.1",
     "npm":"5.5.1"
   },
