@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+.thumbnail-avtar{
+  height: 30%;
+  width: 30%;
+}
+p{text-align:center;}
+
+
+.search1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  padding: 2px;
+  font-size: medium;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+
+}
+.followers{
+  margin: 5px;
+  border-top: 2px solid;
+
+  padding: 5px
+}
+.border-bottom{
+  border-bottom: 1px solid;
+  padding: 5px;
+}

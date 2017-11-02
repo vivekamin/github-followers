@@ -1,47 +1,47 @@
-<div class="row">
-  <div class="">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+<div class="search">
+    <form class="form-inline ">
+        <input class="form-control" type="text" placeholder="Enter Github Username" [(ngModel)]="username" name="username" required="required">
+        <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
     </form>
-  </div>
 </div>
-<br>
 
-<div class="panel panel-info" *ngIf=user >
-  <div class="panel-heading">
-    <h3 class="panel-title">{{user.name}}</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-thumbnail github-avatar" src="{{user.avatar_url}}" alt="user_avatar">
-      </div>
-      <div class="col-md-8">
-        <span class="label label-success">GitHub Handle ::: {{user.login}}</span>
-        <span class="label label-primary">Followers {{user.followers}}</span>
-      </div>
+<div *ngIf="user">
+    <div class="row " style="margin-top:5px">
+
+        <div class="col-md-4 " align="right">
+            <img class=" thumbnail-avtar" src="{{user.avatar_url}}" alt="user_avatar">
+
+        </div>
+        <div class="col-md-6">
+            <h3>GitHub Handle: {{user.login}}</h3>
+            <h4>Followers: {{user.followers}}</h4>
+            <h4>Followers: {{user.following}}</h4>
+
+        </div>
+
     </div>
-  </div>
-  <div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Followers</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="list-group" *ngFor="let follower of followers" >
-          <div class="row">
-            <li class="list-group-item">
-                <h3>{{follower.login}}</h3>
-            </li>
-            <div class="col-md-3">
-              <img class="img-thumbnail github-avatar" src="{{follower.avatar_url}}" alt="avatar">
+
+    <div class="row followers">
+
+        <h3>Followers</h3>
+
+        <div  *ngFor="let follower of followers">
+
+            <div class="col-md-2 border-bottom" align="center">
+                <div class="row">
+                    <img class=" thumbnail-avtar" src="{{follower.avatar_url}}" alt="avatar">
+                </div>
+
+                <a class="label label-success" href="{{follower.html_url}}" target="_blank">{{follower.login}}</a>
+
             </div>
-          </div>
-      </ul>
+        </div>
     </div>
-  </div>
+    <div class="search">
+        <button type="submit" class="btn btn-success" (click)="loadMoreFollowers()" *ngIf="flag">Load More</button>
+    </div>
 </div>
-  <button type="submit" class="btn btn-info"  (click)="searchNextLoad()" *ngIf="followers!==[]" >Load More</button>
+
+<div class="alert alert-danger" role="alert" *ngIf="noUser">
+    <strong>Oh snap!</strong> There is no user with searched name.
 </div>

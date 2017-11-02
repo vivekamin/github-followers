@@ -2,15 +2,17 @@ import { Component } from '@angular/core';
 import { GithubService } from '../service/github.service';
 
 @Component({
-  selector: 'github',
+  selector: 'github-app',
   templateUrl: './github.component.html',
   providers: [GithubService]
 })
 export class GithubComponent  {
   user:any;
-  followers:any;
+  followers = [];
   username:string;
-  count:number=0;
+  count:number=1;
+  flag:boolean = true;
+  noUser:boolean = false;
 
   constructor(private githubService:GithubService){
     console.log('Github Component init');
@@ -19,23 +21,60 @@ export class GithubComponent  {
 
   search(){
     //console.log(this.username);
-    this.githubService.updateUsername(this.username);
-    this.githubService.getUser().subscribe(user => {
-      //console.log(user);
-      this.user = user;
-    });
+    if(this.username){
+              this.count = 1;
+              this.flag = true;
+              this.githubService.getUser(this.username).subscribe((user) => {
+                this.noUser = false;
+                console.log(user);
+                this.user = user;
 
-    this.githubService.getFollowers().subscribe(followers => {
-      //console.log(followers);
-      this.followers = followers;
-    });
+                if(this.user['followers']<((this.count)*50)){
+                this.flag = false;
+                }
+              },
+            (error) =>{
+              console.log(error)
+              this.noUser = true;
+              this.reset();
+
+            });
+
+              this.githubService.getFollowers().subscribe((followers) => {
+                console.log(followers);
+                this.followers = followers;
+              },
+              (error) =>{
+                console.log(error);
+                this.reset();
+              });
+            }
+  else{
+      alert("Please Enter Github username");
+  }
   }
 
-  searchNextLoad(){
-    this.githubService.updateCount();
-    this.githubService.getNextFollowers().subscribe(followers => {
-      //console.log(followers);
+
+  reset()
+  {
+    this.user = '';
+    this.followers = [];
+    this.count=1;
+    this.flag= true;
+
+  }
+
+  loadMoreFollowers(){
+
+    console.log(this.user['followers']);
+    this.count+=1;
+    this.githubService.loadMore().subscribe((followers) => {
       this.followers = followers;
+      if(this.user['followers']<((this.count)*50)){
+      this.flag = false;
+      }
+    },(error) =>{
+      console.log(error)
     });
   }
 
