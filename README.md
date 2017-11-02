@@ -42,8 +42,11 @@ I have hosted the application on heroku [here](https://githubfollower.herokuapp.
 
 ## Run the project
 git clone https://github.com/newshipt/web-coding-challenge.git
+
 go into project directory
+
 npm install
+
 npm start or (ng serve(for development))
 
 
