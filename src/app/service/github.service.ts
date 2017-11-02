@@ -7,12 +7,10 @@ import 'rxjs/add/operator/map';
 export class GithubService{
     private username = '';
     private count=1;
-    private client_id='d8d1c4270b43ad10e691';
-    private client_secret='df227a9d8d339bcfb8a90afad71f9b2b4e59984d'
 
 
     constructor(private _http:Http){
-        console.log('Github Service init');
+
     }
 
     getUser(username){

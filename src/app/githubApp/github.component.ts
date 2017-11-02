@@ -7,15 +7,16 @@ import { GithubService } from '../service/github.service';
   providers: [GithubService]
 })
 export class GithubComponent  {
-  user:any;
-  followers = [];
+
+  followers:any;
   username:string;
   count:number=1;
   flag:boolean = true;
   noUser:boolean = false;
+  user:any;
 
   constructor(private githubService:GithubService){
-    console.log('Github Component init');
+  
 
   }
 
@@ -34,7 +35,7 @@ export class GithubComponent  {
                 }
               },
             (error) =>{
-              console.log(error)
+              //console.log(error)
               this.noUser = true;
               this.reset();
 
@@ -45,7 +46,7 @@ export class GithubComponent  {
                 this.followers = followers;
               },
               (error) =>{
-                console.log(error);
+                //console.log(error);
                 this.reset();
               });
             }
@@ -74,7 +75,7 @@ export class GithubComponent  {
       this.flag = false;
       }
     },(error) =>{
-      console.log(error)
+      //console.log(error)
     });
   }
 

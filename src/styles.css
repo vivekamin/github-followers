@@ -4,7 +4,9 @@
   height: 30%;
   width: 30%;
 }
-p{text-align:center;}
+p{
+  text-align:center;
+}
 
 
 .search1{
@@ -30,6 +32,6 @@ p{text-align:center;}
   padding: 5px
 }
 .border-bottom{
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #337ab7;
   padding: 5px;
 }

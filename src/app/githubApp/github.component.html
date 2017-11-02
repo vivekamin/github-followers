@@ -8,16 +8,13 @@
 <div *ngIf="user">
     <div class="row " style="margin-top:5px">
 
-        <div class="col-md-4 " align="right">
-            <img class=" thumbnail-avtar" src="{{user.avatar_url}}" alt="user_avatar">
-
+        <div class="col-sm-12" align="center">
+            <img class="thumbnail-avtar" src="{{user.avatar_url}}" alt="user_avatar">
+            <h3>{{user.login}}</h3>
+            <h4>Followers: <b>{{user.followers}}</b></h4>
+            <h4>Following:<b> {{user.following}}</b></h4>
         </div>
-        <div class="col-md-6">
-            <h3>GitHub Handle: {{user.login}}</h3>
-            <h4>Followers: {{user.followers}}</h4>
-            <h4>Followers: {{user.following}}</h4>
 
-        </div>
 
     </div>
 
@@ -29,7 +26,7 @@
 
             <div class="col-md-2 border-bottom" align="center">
                 <div class="row">
-                    <img class=" thumbnail-avtar" src="{{follower.avatar_url}}" alt="avatar">
+                    <img class="thumbnail-avtar" src="{{follower.avatar_url}}" alt="avatar">
                 </div>
 
                 <a class="label label-success" href="{{follower.html_url}}" target="_blank">{{follower.login}}</a>
