@@ -9,6 +9,8 @@ The 'LoadMore' butten will be disabled if there are no more followers to diplay.
 
 The response of API calls has been handled using RxJS operators. Used Observables to handle steam data.
 
+
+
 ## Technology Stack
 Angular,BootStrap v3, HTML, Heroku & node.js(for deployement).
 
@@ -16,6 +18,11 @@ Angular,BootStrap v3, HTML, Heroku & node.js(for deployement).
 Because I have pretty good experience with both Angular JS & Angular(2+). $scope was the worst thing with AngularJS. But Since the architecture of whole framework changed and they included most things required to consume RESRful APIs, it has become powerful and efficient. The concept of component-wise application is also a reason, I chose Angular. however the challenge require only one major module to develop. So I did't get chance to use routing,routeGuards ,lifeCycle hooks and AngularModule.
 After creating framework of application in Angular. It is fast to develop a simple to complex application. And it is easily scalable, If the architecture of application has been develped feature-wise.
 
+## Files Coded
+src -> app -> githubApp(All Files)
+src -> app -> service(All Files)
+src -> app -> app.component.html
+src -> styles.css
 
 ## Not Implemeted
 Because of time constraint with busy university scheduling, I didn't get time to revise Karma & Jasmin. As a result I have not implemeted Automated testing in this application.
