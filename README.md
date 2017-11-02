@@ -9,6 +9,10 @@ The 'LoadMore' butten will be disabled if there are no more followers to diplay.
 
 The response of API calls has been handled using RxJS operators. Used Observables to handle steam data.
 
+Day-1(Understading Github API flow, Learnt Heroku)
+
+Day-2(Developed Angular App)
+
 
 
 ## Technology Stack
