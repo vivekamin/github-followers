@@ -5,13 +5,13 @@ Create a service that allows for a user to search for a GitHub username. On a su
 Developed Angular application to consume Github RESTful API. Deployed application on heroku using express.js as dependency.
 
 After searching for user,on single hit GithHub API will provide 50 result of followers.So to load more result I have to use pagination. I have implemeted paginaton using a count and page number. However I am not saving data from every hit. So at a time a user will be able to see 50 followers only.
-The 'LoadMore' butten will be disabled if there are no more followers to diplay.
+The 'LoadMore' button will be disabled if there are no more followers to display.
 
 The response of API calls has been handled using RxJS operators. Used Observables to handle steam data.
 
 Day-1(Understading Github API flow, Learnt Heroku)
 
-Day-2(Developed Angular App)
+Day-2(Developed Angular App, Deployed it)
 
 
 
@@ -20,7 +20,7 @@ Angular,BootStrap v3, HTML, Heroku & node.js(for deployement).
 
 ## Why Angular
 Because I have pretty good experience with both Angular JS & Angular(2+). $scope was the worst thing with AngularJS. But Since the architecture of whole framework changed and they included most things required to consume RESRful APIs, it has become powerful and efficient. The concept of component-wise application is also a reason, I chose Angular. however the challenge require only one major module to develop. So I did't get chance to use routing,routeGuards ,lifeCycle hooks and AngularModule.
-After creating framework of application in Angular. It is fast to develop a simple to complex application. And it is easily scalable, If the architecture of application has been develped feature-wise.
+After creating framework of application in Angular. It is fast to develop a simple to complex application. And it is easily scalable, If the architecture of application has been developed feature-wise.
 
 ## Files Coded
 src -> app -> githubApp(All Files)
