@@ -20,8 +20,11 @@ After creating framework of application in Angular. It is fast to develop a simp
 
 ## Files Coded
 src -> app -> githubApp(All Files)
+
 src -> app -> service(All Files)
+
 src -> app -> app.component.html
+
 src -> styles.css
 
 ## Not Implemeted
