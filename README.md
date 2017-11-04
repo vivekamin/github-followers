@@ -1,27 +1,53 @@
-# MyNewApp
+## Problem
+Create a service that allows for a user to search for a GitHub username. On a successful search return, display the user's GitHub handle, follower count, and a list of the user's followers (just the avatar is fine). Since some users (e.g. gaearon, holman, etc.) have many thousands of followers, GitHub only returns a portion of the followers with each request. Create a "load more" button that, when clicked, fetches the next payload of followers. This button should persist until there are no more pages of followers to fetch.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+## Solution
+Developed Angular application to consume Github RESTful API. Deployed application on heroku using express.js as dependency.
 
-## Development server
+After searching for user,on single hit GithHub API will provide 50 result of followers.So to load more result I have to use pagination. I have implemeted paginaton using a count and page number. However I am not saving data from every hit. So at a time a user will be able to see 50 followers only.
+The 'LoadMore' button will be disabled if there are no more followers to display.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The response of API calls has been handled using RxJS operators. Used Observables to handle steam data.
 
-## Code scaffolding
+Day-1(Understading Github API flow, Learnt Heroku)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Day-2(Developed Angular App, Deployed it)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Technology Stack
+Angular,BootStrap v3, HTML, Heroku & node.js(for deployement).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Why Angular
+Because I have pretty good experience with both Angular JS & Angular(2+). $scope was the worst thing with AngularJS. But Since the architecture of whole framework changed and they included most things required to consume RESRful APIs, it has become powerful and efficient. The concept of component-wise application is also a reason, I chose Angular. however the challenge require only one major module to develop. So I did't get chance to use routing,routeGuards ,lifeCycle hooks and AngularModule.
+After creating framework of application in Angular. It is fast to develop a simple to complex application. And it is easily scalable, If the architecture of application has been developed feature-wise.
 
-## Running end-to-end tests
+## Files Coded
+src -> app -> githubApp(All Files)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+src -> app -> service(All Files)
 
-## Further help
+src -> app -> app.component.html
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+src -> styles.css
+
+## Not Implemeted
+Because of time constraint with busy university scheduling, I didn't get time to revise Karma & Jasmin. As a result I have not implemeted Automated testing in this application.
+
+## Deployement(Demo)
+I have hosted the application on heroku [here](https://githubfollower.herokuapp.com/)
+
+## My LinkedIn Profile
+[LinkedIn](https://www.linkedin.com/in/vivek-amin/)
+
+## Run the project
+git clone https://github.com/vivekamin/github-followers.git
+
+npm install
+
+npm start or (ng serve(for development))
+
+
+
+
+
