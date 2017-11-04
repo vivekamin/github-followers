@@ -41,7 +41,7 @@ I have hosted the application on heroku [here](https://githubfollower.herokuapp.
 [LinkedIn](https://www.linkedin.com/in/vivek-amin/)
 
 ## Run the project
-git clone https://github.com/newshipt/web-coding-challenge.git
+git clone https://github.com/vivekamin/github-followers.git
 
 npm install
 
