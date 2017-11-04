@@ -1,7 +1,19 @@
 <div class="search">
     <form class="form-inline ">
-        <input class="form-control" type="text" placeholder="Enter Github Username" [(ngModel)]="username" name="username" required="required">
-        <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
+        <input class="form-control" type="text" placeholder="Enter Github Username" [(ngModel)]="username" name="username" (keyup)="spotifySearch()" required="required">
+
+        <button class="btn btn-outline-success" type="submit" (click)="search(username)">Search</button>
+        <div class="form-inline searched" *ngIf="searchedUsers" >
+         <div class="innerBox" (click)="search(user.login)" [class.Xhover]="selected === i" (mouseout)="selected = null" (mouseover)="selected=i"   *ngFor="let user of searchedUsers; let i=index;" >
+
+              <img class="small_av" src="{{user.avatar_url}}"  />
+
+                {{user.login}}
+
+          </div>
+
+
+        </div>
     </form>
 </div>
 

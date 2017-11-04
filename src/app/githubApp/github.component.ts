@@ -9,19 +9,46 @@ import { GithubService } from '../service/github.service';
 export class GithubComponent  {
 
   followers:any;
+  selected:any;
   username:string;
   count:number=1;
   flag:boolean = true;
   noUser:boolean = false;
   user:any;
+  searchedUsers:any;
 
   constructor(private githubService:GithubService){
 
 
   }
 
-  search(){
+  spotifySearch(){
+    setTimeout(()=>{
+      this.githubService.searchUser(this.username)
+                        .subscribe((result)=>{
+
+                          this.searchedUsers = [];
+                          for(let item in result['items'] ){
+                           this.searchedUsers.push(result['items'][item])
+                           this.noUser = false;
+                            // console.log(result['items'][item])
+                          }
+
+
+                          //console.log(this.searchedUsers)
+
+                        },
+                        (error)=>{
+                          //console.log(error);
+                          this.searchedUsers = null;
+                        });
+    }, 250)
+
+  }
+  search(user){
     //console.log(this.username);
+    this.username = user;
+    this.searchedUsers = null;
     if(this.username){
               this.count = 1;
               this.flag = true;
@@ -48,6 +75,7 @@ export class GithubComponent  {
               //console.log(error)
               this.noUser = true;
               this.reset();
+              this.searchedUsers = null;
 
             });
 
@@ -73,7 +101,10 @@ export class GithubComponent  {
     //console.log(this.user['followers']);
     this.count+=1;
     this.githubService.loadMore().subscribe((followers) => {
-      this.followers = followers;
+      //console.log(followers)
+      for(let f of followers){
+        this.followers.push(f);
+      }
       if(this.user['followers']<((this.count)*50)){
       this.flag = false;
       }

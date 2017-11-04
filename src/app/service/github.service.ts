@@ -7,28 +7,34 @@ import 'rxjs/add/operator/map';
 export class GithubService{
     private username = '';
     private count=1;
+    private tempu='';
 
 
     constructor(private _http:Http){
 
     }
+    searchUser(username){
+      this.username = username
+      return this._http.get('https://api.github.com/search/users?q='+this.username+'&sort', this.params())
+        .map(res => res.json());
+    }
 
     getUser(username){
       this.count = 1;
-      this.username = username;
-        return this._http.get('https://api.github.com/users/'+this.username, this.params())
+      this.tempu = username;
+        return this._http.get('https://api.github.com/users/'+this.tempu, this.params())
           .map(res => res.json());
     }
 
     getFollowers(){
-        return this._http.get('https://api.github.com/users/'+this.username+"/"+"followers?per_page=50",this.params())
+        return this._http.get('https://api.github.com/users/'+this.tempu+"/"+"followers?per_page=50",this.params())
           .map(res => res.json());
     }
 
 
     loadMore(){
       this.count+=1;
-      return this._http.get('https://api.github.com/users/'+this.username+"/"+"followers?per_page=50&page="+this.count,this.params())
+      return this._http.get('https://api.github.com/users/'+this.tempu+"/"+"followers?per_page=50&page="+this.count,this.params())
         .map(res => res.json());
     }
 
