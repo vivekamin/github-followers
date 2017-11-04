@@ -4,7 +4,7 @@ Create a service that allows for a user to search for a GitHub username. On a su
 ## Solution
 Developed Angular application to consume Github RESTful API. Deployed application on heroku using express.js as dependency.
 
-After searching for user,on single hit GithHub API will provide 50 result of followers.So to load more result I have to use pagination. I have implemeted paginaton using a count and page number. However I am not saving data from every hit. So at a time a user will be able to see 50 followers only.
+After searching for user,on single hit GithHub API will provide 50 result of followers.So to load more result I have to use pagination. I have implemeted paginaton using a count and page number. On click of Load More, new followers will be loaded untill no more followers to show.Application will provide search suggestions.
 The 'LoadMore' button will be disabled if there are no more followers to display.
 
 The response of API calls has been handled using RxJS operators. Used Observables to handle steam data.
