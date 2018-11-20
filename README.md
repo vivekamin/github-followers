@@ -13,6 +13,7 @@ Day-1(Understading Github API flow, Learnt Heroku)
 
 Day-2(Developed Angular App, Deployed it)
 
+![image](https://user-images.githubusercontent.com/25477734/48756512-b272a300-ec56-11e8-8b40-e6b62773ad5a.png)
 
 
 ## Technology Stack
